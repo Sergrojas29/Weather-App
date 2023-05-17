@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 2vw;
+    margin: 0 auto;
+    border: solid 1pt red;
+    font-size: 2vw;
+}
+
+#search{
+    background-color: #D8F2FF;
+    border-radius: 15px;
+    height: 4vw;
+    margin: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+    width: 100%;
+    border: solid 1pt blue
+}
+
+
+section{
+    display: flex;
+
+}
+
+#weatherLogo {
+    border: solid 1pt red;
+    height: 200px;
+    width: 200px;
+}
+
+img {
+    height: inherit;
+}
