@@ -6,7 +6,7 @@
 }
 
 body{
-    background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%);
+    /* background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%); */
 }
 
 header {
@@ -19,24 +19,68 @@ header {
 }
 
 #search{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
     background-color: #D8F2FF;
     border-radius: 15px;
-    height: 4vw;
-    margin: 5px;
+    height: 60px;
+    margin: 0 10%;
 }
+#favCity{
+    margin: 0 1%;
+}
+.city{
+    margin: 0 5px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 0;
+}
+
+.city::before{
+    z-index: -1;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: rgba(135,206,235,1);
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .2;
+
+}
+#citySearch{
+    margin-left: 1%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 30%;
+}
+    
 
 .container {
     display: flex;
     flex-direction: row;
-    height: 600px;
-    width: 100%;
-    border: solid 1pt blue
+    justify-content: center;
+    /* align-items: center; */
+    border: solid 11pt rgb(47, 173, 104);
+    margin: 15px 10%;
 }
 
-
-section{
+#MainWeather{
     display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #257eab;
+    border-radius: 15px;
+    /* width:25%; */
 
+    
 }
 
 #weatherLogo {
@@ -44,7 +88,28 @@ section{
     height: 200px;
     width: 200px;
 }
-
 img {
     height: inherit;
+}
+
+#FiveDayWeather{
+    display: flex;
+    flex-direction: row;
+    border: solid 1pt purple;
+    width: 70%;
+    height: 500px;
+    position: relative;
+}
+
+#titleFiveDay{
+    position: absolute;
+}
+.day{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 20%;
+    background: lightblue;
+    border-radius: 15px;
+
 }
