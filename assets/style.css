@@ -132,7 +132,7 @@ img {
     flex-direction: row;
     /* align-items: center; */
     justify-content: center;
-    border: solid 1pt purple;
+    /* border: solid 1pt purple; */
     width: 80%;
     /* height: 500px; */
     position: relative;
