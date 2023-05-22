@@ -6,16 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
     <link rel="stylesheet" href="./assets/style.css">
+
 </head>
 
 <header>
-    <h1 id="Title">Weather dashboard</h1>
+    <h1 id="Title">Weather Dashboard</h1>
+    <h3 id="date"></h3>
+    <h3 id="time"></h3>
 </header>
 
 <body>
     <section id="search">
-        <input type="search" name="citySearch" id="citySearch" placeholder="Search for Location">
+        <span class="material-symbols-outlined">search</span><input type="search" name="citySearch" id="citySearch"
+            placeholder="Search for Location">
         <div id="favCity">
             <a href="#" class="city">London</a>
             <a href="#" class="city">New York City</a>
@@ -26,36 +41,80 @@
     </section>
     <main class="container">
         <section id="MainWeather">
-            <h2>New York City</h2>
+            <h2 id="cityTitle">New York City</h2>
             <div id="weatherLogo">
+                <h3 class="temp_degrees" id="main_temp_degrees">50°</h3>
                 <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
             </div>
-            <h3 class="temp_degrees" id="main_temp_degrees"><span class="label">Temp:</span> 50</h3>
-            <h4 class="label weather_description">Sunny</h4>
-            <h4 class="label"><span class="label">Precipitation:</span> 1%</h4>
-            <h4 class="label"><span class="label">Wind Spped:</span>15mph</h4>
+            <h4 class="label" id="main_weather_description">Sunny</h4>
+            <h4 class="label"><span class="material-symbols-outlined">
+                humidity_percentage
+                </span><span id="main_weather_Humidity"></span>%</h4>
+            <h4 class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="main_weather_Wind"></span> mph</h4>
+
         </section>
 
         <section id="FiveDayWeather">
-            <h1 id="titleFiveDay">New York City</h1>
+            <h1 id="titleFiveDay">Five Day Forcast</h1>
             <div class="day" id="day1">
-                <!-- <div id="weatherLogo">
+                <div id="weatherLogo">
+                    <h3 class="temp_degrees">50°</h3>
                     <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
                 </div>
-                <h3 class="temp_degrees" id="main_temp_degrees"><span class="label">Temp:</span> 50</h3>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Precipitation:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Spped:</span>15mph</h4> -->
+                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
+                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
+                <h4 class="five_day_titles"><span class="label">Monday</h4>
+            </div>
+            <div class="day" id="day2">
+                <div id="weatherLogo">
+                    <h3 class="temp_degrees" id="main_temp_degrees">100°</h3>
+                    <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
+                </div>
+                <h4 class="label weather_description">Sunny</h4>
+                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
+                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
+                <h4 class="five_day_titles">Monday</h4>
+            </div>
+            <div class="day" id="day3">
+                <div id="weatherLogo">
+                    <h3 class="temp_degrees" id="main_temp_degrees">50°</h3>
+                    <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
+                </div>
+                <h4 class="label weather_description">Sunny</h4>
+                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
+                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
+                <h4 class="five_day_titles"><span class="label">Monday</h4>
+            </div>
+            <div class="day" id="day4">
+                <div id="weatherLogo">
+                    <h3 class="temp_degrees" id="main_temp_degrees">50°</h3>
+                    <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
+                </div>
+                <h4 class="label weather_description">Sunny</h4>
+                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
+                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
+                <h4 class="five_day_titles"><span class="label">Monday</h4>
+            </div>
+            <div class="day" id="day5">
+                <div id="weatherLogo">
+                    <h3 class="temp_degrees" id="main_temp_degrees">50</h3>
+                    <img class="Logopng" src="./assets/images/sun.png" alt="WeatherLogo">
+                </div>
+                <h4 class="label weather_description">Sunny</h4>
+                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
+                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
+                <h4 class="five_day_titles"><span class="label">Monday</h4>
             </div>
 
-            <div class="day" id="day1"></div>
-            <div class="day" id="day1"></div>
-            <div class="day" id="day1"></div>
-            <div class="day" id="day1"></div>
+
 
         </section>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
     <script src="./assets/script.js"></script>
 </body>

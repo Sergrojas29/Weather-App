@@ -2,19 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+    color: white;  
 
 }
 
 body{
     /* background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%); */
+    background: rgb(21, 21, 21);
 }
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 2vw;
     margin: 0 auto;
-    border: solid 1pt red;
     font-size: 2vw;
 }
 
@@ -27,6 +31,9 @@ header {
     border-radius: 15px;
     height: 60px;
     margin: 0 10%;
+}
+.material-symbols-outlined{
+    margin-left: 10px;  
 }
 #favCity{
     margin: 0 1%;
@@ -60,16 +67,18 @@ header {
     border-radius: 10px;
     border: none;
     width: 30%;
+    color: gray;
 }
     
 
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:space-between;
     /* align-items: center; */
-    border: solid 11pt rgb(47, 173, 104);
+    /* border: solid 11pt rgb(47, 173, 104); */
     margin: 15px 10%;
+    gap: 10px;
 }
 
 #MainWeather{
@@ -78,31 +87,67 @@ header {
     padding: 20px;
     background-color: #257eab;
     border-radius: 15px;
-    /* width:25%; */
+    width:20%;
 
     
 }
 
 #weatherLogo {
-    border: solid 1pt red;
-    height: 200px;
-    width: 200px;
+    margin-top: 10px;
+    align-self: center;
+    height: 150px;
+    width: 100%;
+    position: relative;
+    /* border: solid 1pt red; */
 }
 img {
     height: inherit;
 }
+.temp_degrees{
+    position: absolute;
+    font-size: 60px;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+
+}
+
+.label{
+    display: flex;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    justify-content: left;
+    justify-items: left;
+    justify-self: left;
+    /* border: solid 1pt red; */
+    margin: 1pt;
+    font-size: 15pt;
+}
+.material-symbols-outlined {
+    /* border: solid 1pt blue; */
+    margin-right: 5px;
+    margin-left: 0;
+  }
 
 #FiveDayWeather{
     display: flex;
     flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
     border: solid 1pt purple;
-    width: 70%;
-    height: 500px;
+    width: 80%;
+    /* height: 500px; */
     position: relative;
+    gap: 10px;
 }
 
 #titleFiveDay{
     position: absolute;
+    left: 0;
+    bottom: 0;
 }
 .day{
     display: flex;
@@ -111,5 +156,12 @@ img {
     width: 20%;
     background: lightblue;
     border-radius: 15px;
+    position: relative;
 
+}
+.five_day_titles{
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    margin-top: 10px;
 }
