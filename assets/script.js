@@ -2,9 +2,54 @@
 // var cityLon = -74.42
 // var apiKey = '2e7466d78093f0bfb89853f9a2edc0cc'
 // var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=imperial&appid=' + apiKey
-var url = 'https://api.open-meteo.com/v1/forecast?latitude=39.36&longitude=-74.42&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
+var url = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
 
-var inputCity = 'Atlantic City'
+var inputCity = 'New York City'
+
+const popularCity = {
+    London: {
+        CityName: 'London',
+        lat: '51.51',
+        lon: '-0.13',
+    },
+    NewYorkCity: {
+        CityName: 'New York City',
+        lat: '40.71',
+        lon: '-74.01',
+    },
+    HongKong: {
+        CityName: 'Hong Kong',
+        lat: '22.27',
+        lon: '114.18',
+    },
+    Paris: {
+        CityName: 'Paris',
+        lat: '48.85',
+        lon: '2.35',
+    },
+    BuenosAires: {
+        CityName: 'Buenos Aires',
+        lat: '-34.61',
+        lon: '-58.38',
+    },
+    setCityCoor: function (city) {
+        var lat = this[city].lat
+        var lon = this[city].lon
+        url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
+        return url
+
+    },
+}
+
+
+
+var favCityLinks = document.querySelector('.city')
+favCityLinks.addEventListener('click', setCity)
+function setCity(event) {
+    var citySelected = String(event.target.textContent);
+    popularCity.setCityCoor(citySelected)
+    inputCity = citySelected
+}
 
 
 const weatherCode = {
@@ -12,7 +57,7 @@ const weatherCode = {
     W1: 'Mainly clear',
     W2: 'Partly cloudy',
     W3: 'Overcast',
-    W45: 'Fog ',
+    W45: 'Fog',
     W48: 'Fog',
     W51: 'Drizzle',
     W53: 'Drizzle',
@@ -20,14 +65,14 @@ const weatherCode = {
     W56: 'Freezing Drizzle',
     W57: 'Freezing Drizzle',
     W61: 'Rain',
-    W63: 'Rain ',
-    W65: 'Heavy Rain ',
+    W63: 'Rain',
+    W65: 'Heavy Rain',
     W66: 'Freezing Rain',
     W67: 'Freezing Rain',
     W71: 'Snow',
     W73: 'Snow',
     W75: 'Snow',
-    W77: 'Snow grains',
+    W77: 'Snow',
     W80: 'Rain showers',
     W81: 'Rain showers',
     W82: 'Rain showers',
@@ -50,13 +95,13 @@ function setDate(day) {
     var date = document.querySelector('#date')
     var time = document.querySelector('#time')
     date.innerText = today.format('MMM DD, YYYY')
-    time.innerText = today.format('hh:MM A')
+    time.innerText = today.format('hh:mm A')
     return todayHour
 }
 setDate()
 
 function fiveDaySet(day) {
-    const daysOfTheWeek = { 
+    const daysOfTheWeek = {
         W0: 'Sunday',
         W1: 'Monday',
         W2: 'Tuesday',
@@ -67,9 +112,9 @@ function fiveDaySet(day) {
         findDay: function (code) {
             return this[code]
         },
-    
+
     }
-    var dayCard = document.querySelector('#day' + day).children[4]    
+    var dayCard = document.querySelector('#day' + day).children[4]
     var dayOfweeek = dayjs().day() + day
     var Objectfind = "W" + String(dayOfweeek)
     dayCard.innerText = daysOfTheWeek.findDay(Objectfind)
@@ -80,7 +125,7 @@ fetch(url)
         return response.json();
     })
     .then(function (data) {
-        MainWeather(data)      
+        MainWeather(data)
         for (let i = 1; i < 6; i++) {
             getAverageTemperature(data, i)
             getWeatherCode(data, i)
@@ -99,12 +144,15 @@ function MainWeather(data) {
     const mainHumidity = document.querySelector('#main_weather_Humidity')
     const mainDescription = document.querySelector('#main_weather_description')
     const mainWindSpeed = document.querySelector('#main_weather_Wind')
-
+    const mainLogo = document.querySelector('#mainLogo')
 
     var hourDescription = data.hourly.weathercode[todayHour]
     var hourTemperature = data.hourly.temperature_2m[todayHour]
     var hourHumidity = data.hourly.relativehumidity_2m[todayHour]
     var hourWind = data.hourly.windspeed_10m[todayHour]
+
+    var logoUrl = './assets/images/' + weatherCode.findcode('W' + String(hourDescription)) + '.png'
+    mainLogo.setAttribute('src', logoUrl)
 
     cityTitle.innerText = inputCity
     mainDescription.innerText = weatherCode.findcode('W' + String(hourDescription))
@@ -124,14 +172,19 @@ function getAverageTemperature(data, day) {
 
 function getWeatherCode(data, day) {
     var dayCard = document.querySelector('#day' + day).children[1]
+    var weatheLogo = document.querySelector('#day' + day).children[0].children[1]
+
     var getCode = 'W' + String(data.daily.weathercode[day])
     dayCard.innerText = weatherCode.findcode(getCode)
+
+    var logoUrl = './assets/images/' + weatherCode.findcode(getCode) + '.png'
+    weatheLogo.setAttribute('src', logoUrl)
 
 }
 function getHumidity(data, day) {
     var dayCard = document.querySelector('#day' + day).children[2]
     var addicon = document.createElement('span')
-    addicon.setAttribute('class','material-symbols-outlined')
+    addicon.setAttribute('class', 'material-symbols-outlined')
     addicon.innerText = 'humidity_percentage'
     var hoursMin = (24 * day) - 1
     var hoursMax = 24 + hoursMin
@@ -140,17 +193,16 @@ function getHumidity(data, day) {
         var getHumidity = data.hourly.relativehumidity_2m[i]
         averageHumidity += getHumidity
     }
-    dayCard.textContent  = Math.round(averageHumidity / 24) + '%'
+    dayCard.textContent = Math.round(averageHumidity / 24) + '%'
     dayCard.appendChild(addicon)
 
-    console.log(dayCard)
 
 }
 
 function getWindSpeed(data, day) {
     var dayCard = document.querySelector('#day' + day).children[3]
     var addicon = document.createElement('span')
-    addicon.setAttribute('class','material-symbols-outlined')
+    addicon.setAttribute('class', 'material-symbols-outlined')
     addicon.innerText = 'air'
     var hoursMin = (24 * day) - 1
     var hoursMax = 24 + hoursMin
