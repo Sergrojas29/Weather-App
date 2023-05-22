@@ -75,7 +75,6 @@ header {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    /* align-items: center; */
     /* border: solid 11pt rgb(47, 173, 104); */
     margin: 15px 10%;
     gap: 10px;
@@ -98,7 +97,6 @@ header {
     height: 150px;
     width: 100%;
     position: relative;
-    /* border: solid 1pt red; */
 }
 img {
     height: inherit;
@@ -117,11 +115,8 @@ img {
 .label{
     display: flex;
     align-content: center;
-    text-align: center;
     align-items: center;
     justify-content: left;
-    justify-items: left;
-    justify-self: left;
     /* border: solid 1pt red; */
     margin: 1pt;
     font-size: 15pt;
@@ -152,16 +147,24 @@ img {
 .day{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    padding: 15px;
+    height: 275px;
     width: 20%;
     background: lightblue;
     border-radius: 15px;
     position: relative;
 
 }
+
+.day > .label{
+    flex-direction: row-reverse;
+
+
+}
 .five_day_titles{
-    position: relative;
-    bottom: 0;
-    text-align: center;
-    margin-top: 10px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 14pt;
 }

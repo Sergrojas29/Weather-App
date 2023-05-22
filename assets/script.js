@@ -108,7 +108,7 @@ function MainWeather(data) {
 
     cityTitle.innerText = inputCity
     mainDescription.innerText = weatherCode.findcode('W' + String(hourDescription))
-    mainTemp.innerText = hourTemperature + '°F'
+    mainTemp.innerText = Math.round(hourTemperature) + '°F'
     mainHumidity.innerText = hourHumidity
     mainWindSpeed.innerText = hourWind
 }
@@ -130,6 +130,9 @@ function getWeatherCode(data, day) {
 }
 function getHumidity(data, day) {
     var dayCard = document.querySelector('#day' + day).children[2]
+    var addicon = document.createElement('span')
+    addicon.setAttribute('class','material-symbols-outlined')
+    addicon.innerText = 'humidity_percentage'
     var hoursMin = (24 * day) - 1
     var hoursMax = 24 + hoursMin
     var averageHumidity = 0
@@ -137,12 +140,18 @@ function getHumidity(data, day) {
         var getHumidity = data.hourly.relativehumidity_2m[i]
         averageHumidity += getHumidity
     }
-    dayCard.innerText = 'Humidity: ' + Math.round(averageHumidity / 24) + '%'
+    dayCard.textContent  = Math.round(averageHumidity / 24) + '%'
+    dayCard.appendChild(addicon)
+
+    console.log(dayCard)
 
 }
 
 function getWindSpeed(data, day) {
     var dayCard = document.querySelector('#day' + day).children[3]
+    var addicon = document.createElement('span')
+    addicon.setAttribute('class','material-symbols-outlined')
+    addicon.innerText = 'air'
     var hoursMin = (24 * day) - 1
     var hoursMax = 24 + hoursMin
     var averageWind = 0
@@ -150,6 +159,7 @@ function getWindSpeed(data, day) {
         var getWind = data.hourly.windspeed_10m[i]
         averageWind += getWind
     }
-    dayCard.innerText = 'Wind: ' + Math.round(averageWind / 24) + 'mph'
+    dayCard.innerText = Math.round(averageWind / 24) + 'mph'
+    dayCard.appendChild(addicon)
 
 }
