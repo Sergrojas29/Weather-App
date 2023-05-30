@@ -1,7 +1,5 @@
 // var cityLat = 39.36
 // var cityLon = -74.42
-// var apiKey = '2e7466d78093f0bfb89853f9a2edc0cc'
-// var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=imperial&appid=' + apiKey
 var url = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
 
 var inputCity = 'New York City'
@@ -120,26 +118,25 @@ function fiveDaySet(day) {
     dayCard.innerText = daysOfTheWeek.findDay(Objectfind)
 }
 
-fetch(url)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        MainWeather(data)
-        for (let i = 1; i < 6; i++) {
-            getAverageTemperature(data, i)
-            getWeatherCode(data, i)
-            getHumidity(data, i)
-            getWindSpeed(data, i)
-            fiveDaySet(i)
-        }
-        console.log(data)
-    });
+// fetch(url)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         MainWeather(data)
+//         for (let i = 1; i < 6; i++) {
+//             getAverageTemperature(data, i)
+//             getWeatherCode(data, i)
+//             getHumidity(data, i)
+//             getWindSpeed(data, i)
+//             fiveDaySet(i)
+//         }
+//         console.log(data)
+//     });
 
 
 function MainWeather(data) {
-
-    const cityTitle = document.querySelector('#cityTitle')
+        
     const mainTemp = document.querySelector('#main_temp_degrees')
     const mainHumidity = document.querySelector('#main_weather_Humidity')
     const mainDescription = document.querySelector('#main_weather_description')
@@ -154,7 +151,6 @@ function MainWeather(data) {
     var logoUrl = './assets/images/' + weatherCode.findcode('W' + String(hourDescription)) + '.png'
     mainLogo.setAttribute('src', logoUrl)
 
-    cityTitle.innerText = inputCity
     mainDescription.innerText = weatherCode.findcode('W' + String(hourDescription))
     mainTemp.innerText = Math.round(hourTemperature) + '°F'
     mainHumidity.innerText = hourHumidity
