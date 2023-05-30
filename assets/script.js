@@ -186,7 +186,8 @@ function getHumidity(data, day) {
     var addicon = document.createElement('span')
     addicon.setAttribute('class', 'material-symbols-outlined')
     addicon.innerText = 'humidity_percentage'
-    var hoursMin = (24 * day) - 1
+    //! Getting the Average of the 24 hour but minus the hours left of the day
+    var hoursMin = (24 * day) - (1 + todayHour)
     var hoursMax = 24 + hoursMin
     var averageHumidity = 0
     for (let i = hoursMin; i < hoursMax; i++) {
@@ -204,7 +205,7 @@ function getWindSpeed(data, day) {
     var addicon = document.createElement('span')
     addicon.setAttribute('class', 'material-symbols-outlined')
     addicon.innerText = 'air'
-    var hoursMin = (24 * day) - 1
+    var hoursMin = (24 * day) - (1 + todayHour)
     var hoursMax = 24 + hoursMin
     var averageWind = 0
     for (let i = hoursMin; i < hoursMax; i++) {
@@ -214,4 +215,38 @@ function getWindSpeed(data, day) {
     dayCard.innerText = Math.round(averageWind / 24) + 'mph'
     dayCard.appendChild(addicon)
 
+}
+
+
+
+
+
+var items = { 
+calories: 477.8,
+carbohydrates_total_g: 110.2,
+cholesterol_mg: 0,
+fat_saturated_g: 0.3,
+fat_total_g: 2.3,
+fiber_g: 40.7,
+name: "carrots",
+potassium_mg: 410,
+protein_g: 10.3,
+serving_size_g: 1360.7759999999998,
+sodium_mg: 775,
+sugar_g: 46.7,
+}
+
+var items2 = {
+calories: 243.9,
+carbohydrates_total_g: 20.9,
+cholesterol_mg: 35,
+fat_saturated_g: 2.1,
+fat_total_g: 11.2,
+fiber_g: 1.4,
+name: "chicken sandwich",
+potassium_mg: 184,
+protein_g: 16.2,
+serving_size_g: 100,
+sodium_mg: 767,
+sugar_g: 3.6,
 }

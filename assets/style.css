@@ -62,12 +62,21 @@ header {
 
 }
 #citySearch{
+    border-radius: 10px;
+    width: 600px;
+    height: 40px;
+    border: none;
+    color: black;
+    padding-left: 15px;
+}
+
+#searchbar{
+    display: flex;
+    align-content: center;
     margin-left: 1%;
     padding: 10px;
     border-radius: 10px;
-    border: none;
     width: 30%;
-    color: gray;
 }
     
 
@@ -121,11 +130,7 @@ img {
     margin: 1pt;
     font-size: 15pt;
 }
-.material-symbols-outlined {
-    /* border: solid 1pt blue; */
-    margin-right: 5px;
-    margin-left: 0;
-  }
+
 
 #FiveDayWeather{
     display: flex;
