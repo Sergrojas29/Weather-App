@@ -1,41 +1,47 @@
-// var cityLat = 39.36
-// var cityLon = -74.42
 var url = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
-
 var inputCity = 'New York City'
 
-const popularCity = {
-    London: {
+fetch(url)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        MainWeather(data)
+        for (let i = 1; i < 6; i++) {
+            getAverageTemperature(data, i)
+            getWeatherCode(data, i)
+            getHumidity(data, i)
+            getWindSpeed(data, i)
+            fiveDaySet(i)
+        }
+    });
+
+
+var popularCity = {
+    city0: {
         CityName: 'London',
         lat: '51.51',
         lon: '-0.13',
     },
-    NewYorkCity: {
+    city1: {
         CityName: 'New York City',
         lat: '40.71',
-        lon: '-74.01',
-    },
-    HongKong: {
+        lon: '-74.01',GoofGood
+    },GoofGood
+    city2: {
         CityName: 'Hong Kong',
         lat: '22.27',
         lon: '114.18',
     },
-    Paris: {
+    city3: {
         CityName: 'Paris',
         lat: '48.85',
         lon: '2.35',
     },
-    BuenosAires: {
+    city4: {
         CityName: 'Buenos Aires',
         lat: '-34.61',
         lon: '-58.38',
-    },
-    setCityCoor: function (city) {
-        var lat = this[city].lat
-        var lon = this[city].lon
-        url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
-        return url
-
     },
 }
 
@@ -43,8 +49,10 @@ const popularCity = {
 
 var favCityLinks = document.querySelector('.city')
 favCityLinks.addEventListener('click', setCity)
+
 function setCity(event) {
     var citySelected = String(event.target.textContent);
+    console.log(citySelected);
     popularCity.setCityCoor(citySelected)
     inputCity = citySelected
 }
@@ -118,21 +126,7 @@ function fiveDaySet(day) {
     dayCard.innerText = daysOfTheWeek.findDay(Objectfind)
 }
 
-// fetch(url)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         MainWeather(data)
-//         for (let i = 1; i < 6; i++) {
-//             getAverageTemperature(data, i)
-//             getWeatherCode(data, i)
-//             getHumidity(data, i)
-//             getWindSpeed(data, i)
-//             fiveDaySet(i)
-//         }
-//         console.log(data)
-//     });
+
 
 
 function MainWeather(data) {
@@ -214,35 +208,3 @@ function getWindSpeed(data, day) {
 }
 
 
-
-
-
-var items = { 
-calories: 477.8,
-carbohydrates_total_g: 110.2,
-cholesterol_mg: 0,
-fat_saturated_g: 0.3,
-fat_total_g: 2.3,
-fiber_g: 40.7,
-name: "carrots",
-potassium_mg: 410,
-protein_g: 10.3,
-serving_size_g: 1360.7759999999998,
-sodium_mg: 775,
-sugar_g: 46.7,
-}
-
-var items2 = {
-calories: 243.9,
-carbohydrates_total_g: 20.9,
-cholesterol_mg: 35,
-fat_saturated_g: 2.1,
-fat_total_g: 11.2,
-fiber_g: 1.4,
-name: "chicken sandwich",
-potassium_mg: 184,
-protein_g: 16.2,
-serving_size_g: 100,
-sodium_mg: 767,
-sugar_g: 3.6,
-}
