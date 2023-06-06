@@ -18,6 +18,8 @@ function geoSearch() {
             getTempertureforCity(data.results[0].latitude, data.results[0].longitude)
 
             console.log(data)
+            saveRecentData(data)
+
         });
 }
 
@@ -49,5 +51,21 @@ function getTempertureforCity(latitude, longitude) {
                 fiveDaySet(i)
             }
         });
+
+}
+
+
+function saveRecentData(data){
+    var RecentCity = {
+        CityName:'',
+        lat: 0,
+        lon: 0
+    }
+    RecentCity.CityName = data.results[0].name
+    RecentCity.lat = data.results[0].latitude
+    RecentCity.log = data.results[0].longitude
+
+    localStorage.setItem('savedCity', JSON.stringify(RecentCity))
+    console.log(RecentCity);
 
 }

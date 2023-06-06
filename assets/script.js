@@ -1,33 +1,55 @@
-var url = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York'
-var inputCity = 'New York City'
+function findsavedata() {
+    var checkforsave = localStorage.getItem('savedCity')
+    var RecentCity = {
+        CityName: 'London',
+        lat: 51.51,
+        lon: -0.13,
+    }
+    if (!checkforsave) {
+        localStorage.setItem('savedCity', JSON.stringify(RecentCity))
+    }
+    else{
+        var recentcity = JSON.parse(localStorage.getItem('savedCity'))
+        const recentlink = document.querySelector('#lastcity')
+        recentlink.innerText = recentcity.CityName
+    }
 
-fetch(url)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        MainWeather(data)
-        for (let i = 1; i < 6; i++) {
-            getAverageTemperature(data, i)
-            getWeatherCode(data, i)
-            getHumidity(data, i)
-            getWindSpeed(data, i)
-            fiveDaySet(i)
-        }
-    });
+}
+intialWeather()
+
+
+function intialWeather() {
+    findsavedata()
+    var getSave = JSON.parse(localStorage.getItem("savedCity"))
+    var url = `https://api.open-meteo.com/v1/forecast?latitude=${getSave.lat}&longitude=${getSave.lon}&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=America%2FNew_York`
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            setCityName()
+            MainWeather(data)
+            for (let i = 1; i < 6; i++) {
+                getAverageTemperature(data, i)
+                getWeatherCode(data, i)
+                getHumidity(data, i)
+                getWindSpeed(data, i)
+                fiveDaySet(i)
+            }
+        });
+
+
+}
+
+
 
 
 var popularCity = {
-    city0: {
-        CityName: 'London',
-        lat: '51.51',
-        lon: '-0.13',
-    },
     city1: {
         CityName: 'New York City',
         lat: '40.71',
-        lon: '-74.01',GoofGood
-    },GoofGood
+        lon: '-74.01',
+    },
     city2: {
         CityName: 'Hong Kong',
         lat: '22.27',
@@ -38,13 +60,7 @@ var popularCity = {
         lat: '48.85',
         lon: '2.35',
     },
-    city4: {
-        CityName: 'Buenos Aires',
-        lat: '-34.61',
-        lon: '-58.38',
-    },
 }
-
 
 
 var favCityLinks = document.querySelector('.city')
@@ -94,17 +110,17 @@ const weatherCode = {
 
 
 
-
-function setDate(day) {
+setDate()
+function setDate() {
     var today = dayjs();
-    todayHour = Number(dayjs().format('HH'));
+
     var date = document.querySelector('#date')
     var time = document.querySelector('#time')
     date.innerText = today.format('MMM DD, YYYY')
     time.innerText = today.format('hh:mm A')
-    return todayHour
+
 }
-setDate()
+
 
 function fiveDaySet(day) {
     const daysOfTheWeek = {
@@ -127,16 +143,22 @@ function fiveDaySet(day) {
 }
 
 
+function setCityName() {
+    const mainCityName = document.querySelector('#cityTitle')
+    mainCityName.innerText = JSON.parse(localStorage.getItem("savedCity")).CityName;
 
+
+}
 
 function MainWeather(data) {
-        
+
     const mainTemp = document.querySelector('#main_temp_degrees')
     const mainHumidity = document.querySelector('#main_weather_Humidity')
     const mainDescription = document.querySelector('#main_weather_description')
     const mainWindSpeed = document.querySelector('#main_weather_Wind')
     const mainLogo = document.querySelector('#mainLogo')
 
+    var todayHour = Number(dayjs().format('HH'));
     var hourDescription = data.hourly.weathercode[todayHour]
     var hourTemperature = data.hourly.temperature_2m[todayHour]
     var hourHumidity = data.hourly.relativehumidity_2m[todayHour]
@@ -172,6 +194,7 @@ function getWeatherCode(data, day) {
 
 }
 function getHumidity(data, day) {
+    var todayHour = Number(dayjs().format('HH'));
     var dayCard = document.querySelector('#day' + day).children[2]
     var addicon = document.createElement('span')
     addicon.setAttribute('class', 'material-symbols-outlined')
@@ -191,6 +214,8 @@ function getHumidity(data, day) {
 }
 
 function getWindSpeed(data, day) {
+    var todayHour = Number(dayjs().format('HH'));
+
     var dayCard = document.querySelector('#day' + day).children[3]
     var addicon = document.createElement('span')
     addicon.setAttribute('class', 'material-symbols-outlined')
