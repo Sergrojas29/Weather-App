@@ -1,4 +1,5 @@
 # Weather-App
+Weather Dashboard is a web app that provides you with current weather information for any location in the world. Just write a location city or country and it will present a current forcast and a five day forcast of the average temperature.
 
 ## User Story
 
@@ -21,3 +22,13 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+## Usage
+
+![Webpage](./assets/Usage.png)
+
+## Road Map
+
+    Add high/low
+    Change Icon to be more unique
+    More saved city to recent

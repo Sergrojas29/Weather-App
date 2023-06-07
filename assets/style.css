@@ -30,7 +30,7 @@ header {
     background-color: #D8F2FF;
     border-radius: 15px;
     height: 80px;
-    margin: 0 10%;
+    margin: 0 1%;
     font-size: 18pt;
 }
 .material-symbols-outlined{
@@ -39,7 +39,8 @@ header {
 #favCity{
     margin: 0 1%;
 }
-.city{
+.city,
+.cityRecent{
     margin: 0 5px;
     padding: 10px;
     color: black;
@@ -49,6 +50,7 @@ header {
     z-index: 0;
 }
 
+.cityRecent::before,
 .city::before{
     z-index: -1;
     content: '';
@@ -71,6 +73,10 @@ header {
     padding-left: 15px;
     font-size: 18pt;
 }
+.city:hover,
+.cityRecent:hover{
+    cursor: pointer;
+}
 
 #searchbar{
     display: flex;
@@ -78,37 +84,38 @@ header {
     margin-left: 1%;
     padding: 10px;
     border-radius: 10px;
-    width: 30%;
+    width: 40%;
 }
     
 
 .container {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content:space-evenly;
     /* border: solid 11pt rgb(47, 173, 104); */
-    margin: 15px 10%;
+    margin: 15px 1%;
     gap: 10px;
 }
 
 #MainWeather{
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: space-evenly;
     padding: 20px;
     background-color: #257eab;
     border-radius: 15px;
     width:20%;
+    height: 450px;
 
     
 }
 #cityTitle{
-    font-size: 36pt;
+    font-size: 31pt;
 }
 #weatherLogo {
     margin-top: 10px;
     align-self: center;
-    height: 250px;
+    height: 200px;
     width: 100%;
     position: relative;
 }
@@ -133,7 +140,7 @@ img {
     justify-content: left;
     /* border: solid 1pt red; */
     margin: 1pt;
-    font-size: 30pt;
+    font-size: 18pt;
 }
 
 
@@ -157,8 +164,9 @@ img {
 .day{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     padding: 15px;
-    height: 440px;
+    height: 350px;
     width: 20%;
     background: lightblue;
     border-radius: 15px;

@@ -8,7 +8,7 @@ function findsavedata() {
     if (!checkforsave) {
         localStorage.setItem('savedCity', JSON.stringify(RecentCity))
     }
-    else{
+    else {
         var recentcity = JSON.parse(localStorage.getItem('savedCity'))
         const recentlink = document.querySelector('#lastcity')
         recentlink.innerText = recentcity.CityName
@@ -16,7 +16,7 @@ function findsavedata() {
 
 }
 intialWeather()
-
+setFiveDayLable()
 
 function intialWeather() {
     findsavedata()
@@ -34,10 +34,9 @@ function intialWeather() {
                 getWeatherCode(data, i)
                 getHumidity(data, i)
                 getWindSpeed(data, i)
-                fiveDaySet(i)
+                // fiveDaySet(i)
             }
         });
-
 
 }
 
@@ -45,33 +44,41 @@ function intialWeather() {
 
 
 var popularCity = {
-    city1: {
+    NewYorkCity: {
         CityName: 'New York City',
-        lat: '40.71',
-        lon: '-74.01',
+        lat: 40.71,
+        lon: -74.01,
     },
-    city2: {
+    HongKong: {
         CityName: 'Hong Kong',
-        lat: '22.27',
-        lon: '114.18',
+        lat: 22.27,
+        lon: 114.18,
     },
-    city3: {
+    Paris: {
         CityName: 'Paris',
-        lat: '48.85',
-        lon: '2.35',
+        lat: 48.85,
+        lon: 2.35,
     },
 }
 
+//! Button for city
+var favCityLinks = document.querySelector("#favCity")
+favCityLinks.addEventListener('click', function (event) {
+    var citySelected = event.target.getAttribute('cityname')
+    var mainCity = document.querySelector('#cityTitle')
+    if (!citySelected) {
+        console.log('None');
+    }
+    else {
+        var latlatitude = popularCity[citySelected].lat
+        var longitude = popularCity[citySelected].lon
+        getTempertureforCity(latlatitude, longitude)
+        mainCity.innerText = popularCity[citySelected].CityName
+    }
 
-var favCityLinks = document.querySelector('.city')
-favCityLinks.addEventListener('click', setCity)
+})
 
-function setCity(event) {
-    var citySelected = String(event.target.textContent);
-    console.log(citySelected);
-    popularCity.setCityCoor(citySelected)
-    inputCity = citySelected
-}
+
 
 
 const weatherCode = {
@@ -115,11 +122,45 @@ function setDate() {
     var today = dayjs();
 
     var date = document.querySelector('#date')
-    var time = document.querySelector('#time')
+    // var time = document.querySelector('#time')
     date.innerText = today.format('MMM DD, YYYY')
-    time.innerText = today.format('hh:mm A')
+    // time.innerText = today.format('hh:mm A')
 
 }
+
+function setFiveDayLable() {
+    const daysOfTheWeek = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+    ]
+    var today = dayjs().day() + 1
+    var dayCard = document.querySelectorAll('.five_day_titles')
+    var newweek = []
+    console.log(dayCard);
+    for (let i = today; i < (6 + today); i++) {
+        if (i <= 6) {
+            newweek.push(daysOfTheWeek[i])
+        }
+        else {
+            newweek.push(daysOfTheWeek[(i - 7)])
+        }
+    }
+    console.log(newweek);
+    for (let i = 0; i < dayCard.length; i++) {
+        let element = dayCard[i];
+        element.innerText = newweek[i]
+
+    }
+
+};
+
+
+
 
 
 function fiveDaySet(day) {

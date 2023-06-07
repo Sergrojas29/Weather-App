@@ -48,7 +48,7 @@ function getTempertureforCity(latitude, longitude) {
                 getWeatherCode(data, i)
                 getHumidity(data, i)
                 getWindSpeed(data, i)
-                fiveDaySet(i)
+                // fiveDaySet(i)
             }
         });
 
