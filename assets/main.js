@@ -1,12 +1,13 @@
 //! Get recent City names
-
 const setrecentCity = () => {
     const savedRecentCity = localStorage.getItem('savedRecentCity')
     savedRecentCity ? printSaveddata() : createSavedData()
 }
 const createSavedData = () => {
-    const popCity = ['london', 'paris', 'hong kong', 'new york',]
+    const popCity = ['London', 'Paris', 'Hong Kong', 'New York',]
     localStorage.setItem('savedRecentCity', JSON.stringify(popCity))
+    printSaveddata()
+    geobycity(popCity[0])
     return 
 }
 function printSaveddata() {
@@ -17,6 +18,7 @@ function printSaveddata() {
         el.innerText = popCity[i]
         i++
     }
+    geobycity(popCity[0])
     return
 }
 setrecentCity()
@@ -104,6 +106,8 @@ function geobycity(cityname){
             })
         })
 }
+
+
 
 
 function searchSuggestions() {
