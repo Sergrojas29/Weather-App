@@ -21,6 +21,9 @@ header {
     margin: 0 auto;
     font-size: 2vw;
 }
+#searchbar{
+    position: relative;
+}
 
 #search{
     display: flex;
@@ -33,6 +36,38 @@ header {
     margin: 0 1%;
     font-size: 18pt;
 }
+
+#autosearch{
+    /* border: solid 6pt red; */
+    width: 95%;
+    top: 87%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#autosearch > button{
+    border: none;
+    text-align: left;
+    font-size: 12pt;
+    background-color: aliceblue;
+    padding: 5px 0;
+    padding-left: 10px;
+    color: black;
+}
+
+#autosearch > button:hover,
+#autosearch > button:active {
+    background-color: #59879e;
+    color: white;
+
+}
+
+
 .material-symbols-outlined{
     margin-left: 10px;  
 }
@@ -123,6 +158,8 @@ img {
     height: inherit;
 }
 .temp_degrees{
+    display: flex;
+    flex-direction: row;
     position: absolute;
     font-size: 60px;
     left: 0;
@@ -131,6 +168,12 @@ img {
     margin: 0;
     padding: 0;
 
+}
+#hightemp{
+    color: rgb(255, 106, 106);
+}
+#lowtemp{
+    color: rgb(106, 195, 255);
 }
 
 .label{
@@ -174,15 +217,11 @@ img {
 
 }
 
-.day > .label{
-    flex-direction: row-reverse;
 
-
-}
 .five_day_titles{
     position: absolute;
     bottom: -55px;
     left: 50%;
     transform: translate(-50%);
-    font-size: 30pt;
+    font-size: 22pt;
 }

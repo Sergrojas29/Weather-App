@@ -1,0 +1,7 @@
+{
+    "editor.cursorBlinking": "blink",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.scale": 3,
+    "editor.minimap.enabled": false,
+    "editor.minimap.autohide": false
+}

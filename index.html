@@ -29,19 +29,20 @@
 <body>
     <section id="search">
         <div id="searchbar">
-                <input type="search" name="citySearch" id="citySearch"
-                placeholder="Search for City">
+            <input type="search" name="citySearch" id="citySearch" placeholder="Search for City">
+            <div id="autosearch">
+            </div>
         </div>
         <div id="favCity">
-            <a class="cityRecent" id="lastcity" >Recent</a>
-            <a class="city" cityname="NewYorkCity">New York City</a>
-            <a class="city" cityname="Paris">Paris</a>
-            <a class="city" cityname="HongKong">Hong Kong</a>
+            <a class="city">Recent</a>
+            <a class="city">Recent</a>
+            <a class="city">Recent</a>
+            <a class="city">Recent</a>
         </div>
     </section>
     <main class="container">
         <section id="MainWeather">
-            <h2 id="cityTitle">New York City</h2>
+            <h2 id="cityTitle">City Name</h2>
             <div id="weatherLogo">
                 <h3 class="temp_degrees" id="main_temp_degrees">0°</h3>
                 <img class="Logopng" id="mainLogo" src="./assets/images/Clear sky.png" alt="WeatherLogo">
@@ -59,53 +60,91 @@
         <section id="FiveDayWeather">
             <div class="day" id="day1">
                 <div id="weatherLogo">
-                    <h3 class="temp_degrees">0°</h3>
-                    <img class="Logopng" src="./assets/images/Clear sky.png" alt="WeatherLogo">
+                    <div class="temp_degrees">
+                        <h4 id="hightemp">0°</h4>/<h4 id="lowtemp">0°</h4>
+                    </div>
+                    <img class="LogopngFiveday" src="./assets/images/Clear sky.png" alt="WeatherLogo">
                 </div>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
-                <h4 class="five_day_titles"><span class="label">Monday</h4>
+
+                <div class="label"><span class="material-symbols-outlined">
+                    humidity_percentage
+                </span><span id="humidity"></span>%</div>
+                
+                <div class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="windspeed"></span>mph</div>
+                <h4 class="five_day_titles">day</h4>   
+
+
             </div>
             <div class="day" id="day2">
                 <div id="weatherLogo">
-                    <h3 class="temp_degrees" id="main_temp_degrees">0°</h3>
-                    <img class="Logopng" src="./assets/images/Clear sky.png" alt="WeatherLogo">
+                    <div class="temp_degrees">
+                        <h4 id="hightemp">0°</h4>/<h4 id="lowtemp">0°</h4>
+                    </div>
+                    <img class="LogopngFiveday" src="./assets/images/Clear sky.png" alt="WeatherLogo">
                 </div>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
-                <h4 class="five_day_titles">Monday</h4>
+                
+                                <div class="label"><span class="material-symbols-outlined">
+                    humidity_percentage
+                </span><span id="humidity"></span>%</div>
+                <div class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="windspeed"></span>mph</div>
+                <h4 class="five_day_titles">day</h4> 
             </div>
             <div class="day" id="day3">
                 <div id="weatherLogo">
-                    <h3 class="temp_degrees" id="main_temp_degrees">0°</h3>
-                    <img class="Logopng" src="./assets/images/Clear sky.png" alt="WeatherLogo">
+                    <div class="temp_degrees">
+                        <h4 id="hightemp">0°</h4>/<h4 id="lowtemp">0°</h4>
+                    </div>
+                    <img class="LogopngFiveday" src="./assets/images/Clear sky.png" alt="WeatherLogo">
                 </div>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
-                <h4 class="five_day_titles"><span class="label">Monday</h4>
+                
+                                <div class="label"><span class="material-symbols-outlined">
+                    humidity_percentage
+                </span><span id="humidity"></span>%</div>
+                <div class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="windspeed"></span>mph</div>
+                <h4 class="five_day_titles">day</h4> 
             </div>
             <div class="day" id="day4">
                 <div id="weatherLogo">
-                    <h3 class="temp_degrees" id="main_temp_degrees">0°</h3>
-                    <img class="Logopng" src="./assets/images/Clear sky.png" alt="WeatherLogo">
+                    <div class="temp_degrees">
+                        <h4 id="hightemp">0°</h4>/<h4 id="lowtemp">0°</h4>
+                    </div>
+                    <img class="LogopngFiveday" src="./assets/images/Clear sky.png" alt="WeatherLogo">
                 </div>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
-                <h4 class="five_day_titles"><span class="label">Monday</h4>
+                
+                                <div class="label"><span class="material-symbols-outlined">
+                    humidity_percentage
+                </span><span id="humidity"></span>%</div>
+                <div class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="windspeed"></span>mph</div>
+                <h4 class="five_day_titles">day</h4> 
             </div>
             <div class="day" id="day5">
                 <div id="weatherLogo">
-                    <h3 class="temp_degrees" id="main_temp_degrees">0°</h3>
-                    <img class="Logopng" src="./assets/images/Clear sky.png" alt="WeatherLogo">
+                    <div class="temp_degrees">
+                        <h4 id="hightemp">0°</h4>/<h4 id="lowtemp">0°</h4>
+                    </div>
+                    <img class="LogopngFiveday" src="./assets/images/Clear sky.png" alt="WeatherLogo">
                 </div>
                 <h4 class="label weather_description">Sunny</h4>
-                <h4 class="label"><span class="label">Humidity:</span> 1%</h4>
-                <h4 class="label"><span class="label">Wind Speed:</span>15mph</h4>
-                <h4 class="five_day_titles"><span class="label">Monday</h4>
+                
+                                <div class="label"><span class="material-symbols-outlined">
+                    humidity_percentage
+                </span><span id="humidity"></span>%</div>
+                <div class="label"><span class="material-symbols-outlined">
+                    air
+                </span><span id="windspeed"></span>mph</div>
+                <h4 class="five_day_titles">day</h4> 
             </div>
 
 
@@ -115,8 +154,11 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
-    <script src="./assets/script.js"></script>
-    <script src="./assets/geoLocation.js"></script>
+    <!-- <script src="./assets/script.js"></script> -->
+    <!-- <script src="./assets/geoLocation.js"></script> -->
+    <script src="./assets/reference.js"></script>
+    <script src="./assets/results.js"></script>
+    <script src="./assets/main.js"></script>
 </body>
 
 </html>
