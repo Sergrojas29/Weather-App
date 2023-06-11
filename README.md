@@ -1,9 +1,34 @@
 # Weather-App
 
+![logo](./assets/readme/Logo.png)
 https://sergrojas29.github.io/Weather-App/
 
-Weather Dashboard is a web app that provides you with current weather information for any location in the world. Just write a location city or country and it will present a current forcast and a five day forcast of the average temperature.
+Weather Dash my first mobile freindly webapp. It will provides you with current weather information for any location in the world. Just write a location city or country and it will present a current forcast and a five day forcast of the average temperature. Along with saving the previous search to clickable links.
 
+Along with mobile site, it also has an auto complete search function.
+
+
+## Authors
+
+-[@Sergrojas29](https://github.com/Sergrojas29) | Sergio Rojas-Aguilar
+
+
+## API
+
+| API | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| [Open-meteo](https://open-meteo.com/) | `data` | Search locations globally in any language|
+| [Open-meteo](https://open-meteo.com/) | `data` | Weather Forecast API|
+
+
+## Development
+![Dev1](./assets/readme/Readme-02.png)
+![Dev2](./assets/readme/Readme-03.png)
+![Dev3](./assets/readme/Readme-04.png)
+
+
+## Demo
+![demo](https://www.youtube.com/watch?v=GrVflPPpfDw)
 ## User Story
 
 ```
@@ -31,7 +56,10 @@ THEN I am again presented with current and future conditions for that city
 ![Webpage](./assets/Usage.png)
 
 ## Road Map
+    Add more day to forecast
 
-    Add high/low
-    Change Icon to be more unique
-    More saved city to recent
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
