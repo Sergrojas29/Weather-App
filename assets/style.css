@@ -366,7 +366,7 @@ img {
         justify-content: center;
         overflow: hidden;
         /* width: 100vw; */
-        border: solid 1pt red;
+        /* border: solid 1pt red; */
     }
 
     #searchbarContainer {
@@ -431,4 +431,20 @@ img {
     
     }
 
+}
+
+@media screen and (max-width: 510px) {
+
+
+    #logoContain{
+        scale: .7;
+    }
+}
+
+@media screen and (max-width: 355px) {
+
+
+    #logoContain{
+        scale: .4;
+    }
 }
