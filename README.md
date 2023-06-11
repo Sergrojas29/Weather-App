@@ -28,7 +28,15 @@ Along with mobile site, it also has an auto complete search function.
 
 
 ## Demo
-![demo](https://www.youtube.com/watch?v=GrVflPPpfDw)
+
+https://github.com/Sergrojas29/Weather-App/assets/128770839/7398bf00-b96c-43be-9b10-fd31cb65ac05
+
+
+
+https://github.com/Sergrojas29/Weather-App/assets/128770839/2632e9d4-38cb-4413-8a6a-96b42881b4c4
+
+
+
 ## User Story
 
 ```
