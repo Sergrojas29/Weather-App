@@ -25,7 +25,6 @@ header {
 #logoContain {
     position: relative;
     height: 150px;
-    border: solid 1pt red;
 }
 
 #logo {
@@ -37,8 +36,9 @@ header {
 
 
 #animationContain{
+    /* border: solid 1pt red; */
+
     position: absolute;
-    border: solid 1pt red;
     width: 100vw;
     height: 185px;
     overflow: hidden;
