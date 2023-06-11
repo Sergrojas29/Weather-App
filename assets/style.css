@@ -8,8 +8,8 @@
 }
 
 body{
-    /* background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%); */
-    background: rgb(21, 21, 21);
+    background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%);
+    /* background: rgb(21, 21, 21); */
 }
 
 header {
@@ -21,6 +21,83 @@ header {
     margin: 0 auto;
     font-size: 2vw;
 }
+
+#logoContain{
+    position: relative;
+    height: 150px;
+}
+#logo{
+    z-index: 999;
+}
+
+#sun,#largeCloud,#AniCloud,#bird,#plane{
+    position: absolute;
+}
+
+#sun{
+    left: 160px;
+    z-index: -1;
+    transform: scale(1.2);
+
+}
+
+#largeCloud{
+    /* border: solid red 1pt; */
+    left: -90px;
+    z-index: -1;
+
+}
+
+#AniCloud{
+    left: 280px;
+    top: 15px;
+    opacity: .9;
+    animation: cloudcrawl 100s linear infinite alternate;    
+}
+
+@keyframes cloudcrawl {
+    from{
+        left: 280px;
+    }
+    to{
+        left: -300px
+    }
+    
+}
+
+#bird{
+    animation: birdcrawl 50s linear infinite forwards;
+    left: 800px;
+}
+
+@keyframes birdcrawl {
+    from{
+        left: 800px;
+    }
+    to{
+        left: -800px
+    }
+    
+}
+
+#plane{
+    animation: planecrawl 20s linear infinite forwards;    
+    left: 800px;
+    top:-25px
+
+}
+
+@keyframes planecrawl {
+    from{
+        left: 800px;
+    }
+    to{
+        left: -800px
+    }
+    
+}
+
+
 #searchbar{
     position: relative;
 }
@@ -211,7 +288,7 @@ img {
     padding: 15px;
     height: 350px;
     width: 20%;
-    background: lightblue;
+    background: rgb(142, 227, 255);
     border-radius: 15px;
     position: relative;
 
