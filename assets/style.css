@@ -3,11 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Comfortaa', cursive;
-    color: white;  
+    color: white;
 
 }
 
-body{
+body {
     background: linear-gradient(90deg, rgba(135,206,235,1) 0%, rgba(0,189,254,1) 43%, rgba(90,222,255,1) 100%);
     /* background: rgb(21, 21, 21); */
 }
@@ -22,99 +22,146 @@ header {
     font-size: 2vw;
 }
 
-#logoContain{
+#logoContain {
     position: relative;
     height: 150px;
-}
-#logo{
-    z-index: 999;
+    border: solid 1pt red;
 }
 
-#sun,#largeCloud,#AniCloud,#bird,#plane{
+#logo {
+    z-index: 999;
+
+}
+
+
+
+
+#animationContain{
+    position: absolute;
+    border: solid 1pt red;
+    width: 100vw;
+    height: 185px;
+    overflow: hidden;
+}
+
+#sun,
+#largeCloud,
+#AniCloud,
+#bird,
+#plane {
     position: absolute;
 }
 
-#sun{
-    left: 160px;
+#sun {
+    right: 300px;
     z-index: -1;
-    transform: scale(1.2);
+    transform: scale(.8);
+    animation: sunrotate 100s linear infinite;
 
 }
 
-#largeCloud{
-    /* border: solid red 1pt; */
-    left: -90px;
+@keyframes sunrotate {
+    from {
+        rotate: 0;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#largeCloud {
+    left: 10px;
+    top: 10px;
+    transform: scale(.6)scaleX(1.2);
+    opacity: .8;
     z-index: -1;
 
 }
 
-#AniCloud{
-    left: 280px;
-    top: 15px;
+#AniCloud {
+    top: 35px;
     opacity: .9;
-    animation: cloudcrawl 100s linear infinite alternate;    
+    transform: scale(.5);
+    right: -67px;
+    animation: cloudcrawl 100s linear infinite alternate;
 }
 
 @keyframes cloudcrawl {
-    from{
-        left: 280px;
+    from {
+        right: -67px;
     }
-    to{
-        left: -300px
+    
+    to {
+        right: 310px
     }
     
 }
 
-#bird{
-    animation: birdcrawl 50s linear infinite forwards;
-    left: 800px;
+#bird {
+    animation: birdcrawl 25s linear infinite forwards;
+    right: -240px;
+    transform: scale(.25);
+    bottom: -50px;
+    
 }
 
 @keyframes birdcrawl {
-    from{
-        left: 800px;
+    from {
+        right: -240px;
     }
-    to{
-        left: -800px
+    
+    to {
+        right: 1860px;
     }
     
 }
 
-#plane{
-    animation: planecrawl 20s linear infinite forwards;    
-    left: 800px;
-    top:-25px
-
+#plane {
+    animation: planecrawl 15s linear infinite forwards;
+    right: -210px;
+    transform: scale(.2);
+    top: -80px
 }
 
 @keyframes planecrawl {
-    from{
-        left: 800px;
+    from {
+        right: -210px;
     }
-    to{
-        left: -800px
+
+    to {
+        right: 2400px;
     }
-    
+
 }
 
-
-#searchbar{
-    position: relative;
-}
-
-#search{
+#search {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     background-color: #D8F2FF;
     border-radius: 15px;
-    height: 80px;
+    height: 100%;
     margin: 0 1%;
     font-size: 18pt;
+    flex-wrap: wrap;
 }
 
-#autosearch{
+
+#searchbarContainer {
+    position: relative;
+    display: flex;
+    align-content: center;
+    margin-left: 1%;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+
+}
+
+
+#autosearch {
     /* border: solid 6pt red; */
     width: 95%;
     top: 87%;
@@ -127,7 +174,7 @@ header {
     z-index: 10;
 }
 
-#autosearch > button{
+#autosearch>button {
     border: none;
     text-align: left;
     font-size: 12pt;
@@ -137,22 +184,26 @@ header {
     color: black;
 }
 
-#autosearch > button:hover,
-#autosearch > button:active {
+#autosearch>button:hover,
+#autosearch>button:active {
     background-color: #59879e;
     color: white;
 
 }
 
 
-.material-symbols-outlined{
-    margin-left: 10px;  
-}
-#favCity{
+
+#favCity {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-content: center;
     margin: 0 1%;
+    height: 100%;
 }
+
 .city,
-.cityRecent{
+.cityRecent {
     margin: 0 5px;
     padding: 10px;
     color: black;
@@ -163,12 +214,12 @@ header {
 }
 
 .cityRecent::before,
-.city::before{
+.city::before {
     z-index: -1;
     content: '';
     height: 100%;
     width: 100%;
-    background-color: rgba(135,206,235,1);
+    background-color: rgba(135, 206, 235, 1);
     border-radius: 5px;
     position: absolute;
     left: 0;
@@ -176,7 +227,8 @@ header {
     opacity: .2;
 
 }
-#citySearch{
+
+#citySearch {
     border-radius: 10px;
     width: 600px;
     height: 60px;
@@ -185,45 +237,41 @@ header {
     padding-left: 15px;
     font-size: 18pt;
 }
+
 .city:hover,
-.cityRecent:hover{
+.cityRecent:hover {
     cursor: pointer;
 }
 
-#searchbar{
-    display: flex;
-    align-content: center;
-    margin-left: 1%;
-    padding: 10px;
-    border-radius: 10px;
-    width: 40%;
-}
-    
+
+
 
 .container {
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     /* border: solid 11pt rgb(47, 173, 104); */
     margin: 15px 1%;
     gap: 10px;
 }
 
-#MainWeather{
+#MainWeather {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 20px;
     background-color: #257eab;
     border-radius: 15px;
-    width:20%;
+    width: 20%;
     height: 450px;
 
-    
+
 }
-#cityTitle{
+
+#cityTitle {
     font-size: 31pt;
 }
+
 #weatherLogo {
     margin-top: 10px;
     align-self: center;
@@ -231,10 +279,12 @@ header {
     width: 100%;
     position: relative;
 }
+
 img {
     height: inherit;
 }
-.temp_degrees{
+
+.temp_degrees {
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -246,42 +296,43 @@ img {
     padding: 0;
 
 }
-#hightemp{
+
+#hightemp {
     color: rgb(255, 106, 106);
 }
-#lowtemp{
+
+#lowtemp {
     color: rgb(106, 195, 255);
 }
 
-.label{
+.label {
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: left;
-    /* border: solid 1pt red; */
     margin: 1pt;
     font-size: 18pt;
 }
 
 
-#FiveDayWeather{
+#FiveDayWeather {
     display: flex;
     flex-direction: row;
     /* align-items: center; */
     justify-content: center;
-    /* border: solid 1pt purple; */
     width: 80%;
     height: 500px;
     position: relative;
     gap: 10px;
 }
 
-#titleFiveDay{
+#titleFiveDay {
     position: absolute;
     left: 0;
     bottom: 0;
 }
-.day{
+
+.day {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -295,10 +346,89 @@ img {
 }
 
 
-.five_day_titles{
+.five_day_titles {
     position: absolute;
     bottom: -55px;
     left: 50%;
     transform: translate(-50%);
     font-size: 22pt;
+}
+
+.material-symbols-outlined {
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 1524px) {
+
+    #logoContain{
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        /* width: 100vw; */
+        border: solid 1pt red;
+    }
+
+    #searchbarContainer {
+        position: relative;
+        display: flex;
+        align-content: center;
+        margin-left: 1%;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+    
+    }
+
+
+    #citySearch {
+        width: 100%;
+    }    
+       
+    #favCity {
+        flex-wrap: wrap;
+        margin: 1% 1%;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        /* border: solid 1pt red; */
+    }
+
+
+
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 15px 1%;
+        gap: 10px;
+        height: 100%;
+    }
+
+    #MainWeather {
+        justify-content: space-evenly;
+        width: 100%;
+        height: 450px;
+
+    }
+    #FiveDayWeather {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        gap: 70px;
+    }
+    
+    
+    .day {
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        width: 100%;
+    
+    }
+
 }
